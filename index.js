@@ -1,4 +1,4 @@
-let contacts = [];
+/* let contacts = [];
 let contactId = 0;
 
 class Contact{
@@ -10,10 +10,77 @@ class Contact{
 
     addContacts () {
        contacts.push(this);
-}
+    }
+} */
+const url="https://6498805c9543ce0f49e219bd.mockapi.io/api/contacts" ;
+$.get(url, (data) => console.log(data));
+
+
+function addObjectToArray(objectToAdd) {
+$.post(url, objectToAdd, (data) => {
+    console.log("New Contact Added:", data);
+});
 }
 
-function getValue(id) {
+const newObject = {
+    name:"",
+    phonenumber:"",
+    email:"",
+};
+
+function deleteObjectFromArray(objectIdToDelete) {
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (arrayData) {
+            const indexToDelete = arrayData.findIndex(obj => obj.id === objectIdToDelete);
+
+            if (indexToDelete !== -1) {
+                arrayData.splice(indexToDelete, 1);
+                console.log("Object deleted successfully.");
+                console.log("Modified array:", arrayData);
+            } else {
+                console.log("Object not found in the array");
+            }
+        }
+    });
+}
+
+function updateObjectInArray(objectIdToUpdate, updatedObject) {
+    const url = "https://6498805c9543ce0f49e219bd.mockapi.io/api/contacts";
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (arrayData) {
+            const indexToUpdate = arrayData.findIndex(obj => obj.id === objectIdToUpdate);
+
+            if (indexToUpdate !== -1) {
+                arrayData[indexToUpdate] = { ...arrayData[indexToUpdate], ...updatedObject };
+                console.log("Object updated successfully.");
+                console.log("Modified array:", arrayData);
+            } else {
+                console.log("Object not found in the array.");
+            }
+        }
+    });
+}
+const objectIdToUpdate = "";
+const updatedObject = {
+    name: "",
+    phonenumber: "",
+    email: ""
+};
+
+
+
+
+
+
+
+
+
+ /* function getValue(id) {
    return document.getElementById(id).value;
     
 }
@@ -61,11 +128,8 @@ function createTable (data) {
     deleteButton.addEventListener("click", function() {
       contacts.splice(i, 1); // Remove the contact from the array
       createTable(contacts); // Refresh the table
-    });
+    })
+    }};
 
-    cell5.appendChild(deleteButton);            
-           
-
-    }
-    
-      }
+    cell5.appendChild(deleteButton);
+ */
