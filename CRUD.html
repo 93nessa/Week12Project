@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonebook App</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body class="container">
+    <br>
+    <br>
+<div class="border-bottom">
+    <h1 class="jumbotron">Phonebook</h1>
+</div>
+    <br>
+    <div class="form-group">
+        <form>
+        <span class="glyphicon glyphicon-user"></span>
+        <labelfor="contactName">New Contact </labelfor>
+        <input type="text" class="form-control" id="contactName" placeholder="Name">
+        <br>
+        <span class="glyphicon glyphicon-earphone"></span>
+        <labelfor="contactPhone"> Phone Number </labelfor>
+        <input type="number" class="form-control" id="contactPhone" placeholder="Number">
+        <br>
+        <span class="glyphicon glyphicon-envelope"></span>
+        <labelfor="contactEmail"> Email </labelfor>
+        <input type="email" class="form-control" id="contactEmail" placeholder="Email">
+        <br>
+        <button type="button" class="btn btn-outline-dark" id="newContact">Create</button>
+    </form>
+    </div>
+<div class="contactTable">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phonenumber</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="contacts">
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="index.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
